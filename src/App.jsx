@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import f from "./fiboCalFn";
+import calFibo from "./calFibo";
 
 function App() {
   const [count, setCount] = useState(0);
 
-  const value = f(count);
+  const value = calFibo(count);
 
   function increment() {
     setCount((prevState) => prevState + 1);
