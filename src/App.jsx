@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import f from "./fiboCalFn";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [value, setValue] = useState(0);
 
-  useEffect(() => {
-    const fiboNum = f(count);
-    setValue(fiboNum);
-  }, [count]);
+  const value = f(count);
 
   function increment() {
     setCount((prevState) => prevState + 1);
@@ -23,7 +19,9 @@ function App() {
     <>
       <h1>Fibonacci Number</h1>
       <div className="card">
-        <button onClick={decrement}>-</button>
+        <button onClick={decrement} disabled={count === 0}>
+          -
+        </button>
         <button onClick={increment}>+</button>
       </div>
       <div>Number {count}</div>
