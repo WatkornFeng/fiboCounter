@@ -6,6 +6,11 @@ function App() {
   const [count, setCount] = useState(0);
   const [value, setValue] = useState(0);
 
+  useEffect(() => {
+    const fiboNum = f(count);
+    setValue(fiboNum);
+  }, [count]);
+
   function increment() {
     setCount((prevState) => prevState + 1);
   }
@@ -13,11 +18,6 @@ function App() {
     if (count === 0) return;
     setCount((prevState) => prevState - 1);
   }
-
-  useEffect(() => {
-    const fiboNum = f(count);
-    setValue(fiboNum);
-  }, [count]);
 
   return (
     <>
